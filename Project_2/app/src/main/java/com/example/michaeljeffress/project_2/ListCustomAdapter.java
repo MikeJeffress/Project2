@@ -39,7 +39,10 @@ public class ListCustomAdapter extends ArrayAdapter <Wine> {
 
         Wine wineItem = getItem(position);
 
-        Picasso.with(getContext()).load(wineItem.getImage()).into(thumbNail);
+        Picasso.with(getContext())
+                .load(wineItem.getImage())
+                .resize(35,100)
+                .into(thumbNail);
 
         name.setText(wineItem.getName());
         region.setText(wineItem.getRegion());
