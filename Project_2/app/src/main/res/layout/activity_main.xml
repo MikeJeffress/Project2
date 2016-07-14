@@ -5,13 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.michaeljeffress.project_2.MainActivity">
 
+
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/wine_background"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:src="@drawable/wine_background" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,17 +27,9 @@
         android:layout_height="wrap_content"
         android:text="Check Out Our Wines"
         android:id="@+id/button"
-        android:layout_above="@+id/imageButton"
-        android:layout_centerHorizontal="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:src="@drawable/shopping_cart_icon"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="76dp" />
 
 
 </RelativeLayout>

@@ -3,13 +3,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/title_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/title_background"
+        android:layout_marginTop="-3dp"/>
+
+    <LinearLayout
+        android:id="@+id/textblock1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/title_image"
+        android:paddingLeft="12dp"
+        android:layout_centerHorizontal="true">
+
+
+        <ImageView
+            android:id="@+id/thumbnail_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textview_name1"
+            android:text="NAME"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textView_region2"
+            android:text="REGION"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:layout_weight="1.2"/>
+
+        <TextView
+            android:id="@+id/textview_type2"
+            android:text="TYPE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:layout_weight="1.2"/>
+
+        <TextView
+            android:id="@+id/textView_price2"
+            android:text="PRICE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            />
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/list_wine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/textblock1"
         android:layout_above="@+id/button_shopping"
-        />
+        android:paddingTop="5dp"/>
 
 
     <ImageButton
@@ -28,7 +83,9 @@
         android:text="Wine-O-Rama"
         android:textSize="50dp"
         android:id="@+id/textView2"
+        android:textColor="@android:color/white"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-5dp"/>
 
 </RelativeLayout>

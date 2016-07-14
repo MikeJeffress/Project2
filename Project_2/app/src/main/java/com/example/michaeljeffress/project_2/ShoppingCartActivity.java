@@ -1,12 +1,14 @@
 package com.example.michaeljeffress.project_2;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     private ListCustomAdapter adapter;
     private List<Wine> winelist;
     private TextView textView;
+    private Button buttonBack;
 
 
 
@@ -31,6 +34,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         adapter = new ListCustomAdapter(this, R.layout.cart_item_layout, winelist);
         listView = (ListView)findViewById(R.id.listview_shopping);
         textView = (TextView)findViewById(R.id.textview_total_price);
+        buttonBack = (Button)findViewById(R.id.button_back);
         double total_price = 0;
 
         listView.setAdapter(adapter);
@@ -43,6 +47,15 @@ public class ShoppingCartActivity extends AppCompatActivity {
         textView.setTypeface(null, Typeface.BOLD);
         textView.setTypeface(null, Typeface.ITALIC);
         textView.setText(String.format("$"+"%.2f", total_price));
+
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShoppingCartActivity.this, ListActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

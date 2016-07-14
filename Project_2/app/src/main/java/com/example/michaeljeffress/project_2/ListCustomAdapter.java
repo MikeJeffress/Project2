@@ -41,6 +41,7 @@ public class ListCustomAdapter extends ArrayAdapter <Wine> {
 
         Picasso.with(getContext())
                 .load(wineItem.getImage())
+                .placeholder(R.drawable.wine_bottle_placeholder)
                 .resize(35,100)
                 .into(thumbNail);
 
@@ -48,7 +49,6 @@ public class ListCustomAdapter extends ArrayAdapter <Wine> {
         region.setText(wineItem.getRegion());
         type.setText(wineItem.getType());
         price.setText("$" + wineItem.getPrice());
-
         ratingBar.setRating(wineItem.getRating());
 
     return view;

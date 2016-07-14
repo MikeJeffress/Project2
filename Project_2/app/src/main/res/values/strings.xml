@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Wine-O-Rama</string>
+    <string name="search_hint">Search for a wine</string>
+    <string name="wine_list">Wine List</string>
+    <string name="wine_details">Wine Details</string>
+    <string name="shopping_cart">Shopping Cart</string>
 </resources>

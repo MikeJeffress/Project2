@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/title_background"
+        android:layout_marginTop="-3dp"/>
+
     <ListView
         android:id="@+id/listview_shopping"
         android:text="name"
@@ -11,10 +17,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/button_back"
         android:layout_below="@+id/textView2"
         android:layout_toStartOf="@+id/textView3"
-        android:layout_toLeftOf="@+id/textView3" />
+        android:layout_toLeftOf="@+id/textView3"
+        android:paddingTop="5dp"/>
 
     <TextView
         android:id="@+id/textview_total_price"
@@ -31,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back To Wine List"
-        android:id="@+id/button2"
+        android:id="@+id/button_back"
         android:layout_alignParentBottom="true" />
 
     <Button
@@ -50,8 +57,10 @@
         android:text="Wine-O-Rama"
         android:textSize="50dp"
         android:id="@+id/textView2"
+        android:textColor="@android:color/white"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-5dp"/>
 
     <TextView
         android:layout_width="wrap_content"

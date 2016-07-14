@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by michaeljeffress on 7/10/16.
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Dbase extends SQLiteOpenHelper {
     private static final String NAME = "wine_db";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 8;
     public static final String WINE_LIST_TABLE_NAME = "WINE_LIST";
     public static final String SHOPPING_CART_LIST_TABLE_NAME = "SHOPPING_CART_LIST";
 
@@ -31,6 +31,7 @@ public class Dbase extends SQLiteOpenHelper {
     public static final String COL_ITEM_QUANTITY = "QUANTITY";
 
     private static Dbase instance;
+
 
 
     public static final String[] WINE_COLUMNS = {
@@ -69,14 +70,21 @@ public class Dbase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+
         db.execSQL(CREATE_WINE_LIST_TABLE);
         db.execSQL(CREATE_SHOPPING_CART_LIST_TABLE);
 
-        addWine(db, "Romanee-Conti", "Critics have rated this as the best available among French wines: the 2013 vintage was given a score of 96 by The Wine Advocate and the 2013 vintage was given a score of 19/20 by Jancis Robinson.", 13226.00, 5, "http://sr3.wine-searcher.net/images/labels/79/21/domaine-de-la-romanee-conti-romanee-conti-grand-cru-cote-de-nuits-france-10607921.jpg", "Red", "Europe");
-        addWine(db, "wine2", "desc", 7000.99, 4, "http://URL", "Red", "Europe");
-        addWine(db, "wine3", "desc", 6000.99, 4, "http://URL", "Red", "Europe");
-        addWine(db, "wine4", "desc", 6000.99, 5, "http://URL", "Red", "Europe");
-        addWine(db, "wine5", "desc", 5000.99, 5, "http://URL", "Red", "Europe");
+        addWine(db, "Romanee-Conti", "Critics have rated this as the best available among French wines: the 2013 vintage was given a score of 96 by The Wine Advocate and the 2013 vintage was given a score of 19/20 by Jancis Robinson.", 13253.99, 5, "http://sr3.wine-searcher.net/images/labels/79/21/domaine-de-la-romanee-conti-romanee-conti-grand-cru-cote-de-nuits-france-10607921.jpg", "Red", "France");
+        addWine(db, "Montrachet Grand Cru", "Critics have scored this as one of the top 5 Puligny-Montrachet wines: The Wine Advocate gave the 2013 vintage a score of 98 and Jancis Robinson gave the 2010 vintage a score of 19/20.", 5879.99, 5, "http://sr3.wine-searcher.net/images/labels/05/82/domaine-leflaive-montrachet-grand-cru-cote-de-beaune-france-10580582.jpg", "White", "France");
+        addWine(db, "Musigny Grand Cru", "Critics have scored this as one of the top 5 Chambolle-Musigny wines: The Wine Advocate gave the 2012 vintage a score of 99 and Jancis Robinson gave the 2013 vintage a score of 19/20.", 5389.99, 5, "http://sr3.wine-searcher.net/images/labels/17/02/domaine-leroy-musigny-grand-cru-cote-de-nuits-france-10151702.jpg", "Red", "France");
+        addWine(db, "Joh. Jos. Prum", "Critics have scored this as one of the top 5 Wehlen wines: Jancis Robinson gave the 1959 vintage a score of 20/20; and Wine Spectator gave the 1971 vintage a score of 99.", 4811.01, 5, "http://sr3.wine-searcher.net/images/labels/13/71/joh-jos-prum-wehlener-sonnenuhr-riesling-trockenbeerenauslese-mosel-germany-10641371.jpg", "White", "Germany");
+        addWine(db, "Screaming Eagle", "Critics have scored this as one of the top 5 Napa Valley wines: The Wine Advocate gave the 2013 vintage a score of 97 and Jancis Robinson gave the 2006 vintage a score of 19/20.", 2889.99, 5, "http://sr3.wine-searcher.net/images/labels/90/78/screaming-eagle-cabernet-sauvignon-napa-valley-usa-10399078.jpg", "Red", "Napa");
+        addWine(db, "Corton-Charlemagne", "This is the second most highly rated Cote de Beaune wine (based on critic scores): the 2012 vintage was given a score of 97 by The Wine Advocate and the 2012 vintage was given a score of 19/20 by Jancis Robinson.", 2824.99, 5, "http://sr3.wine-searcher.net/images/labels/22/28/coche-dury-corton-charlemagne-grand-cru-cote-de-beaune-france-10462228.jpg", "White", "France");
+        addWine(db, "Petrus", "Critics have scored this as one of the top 5 Napa Valley wines: The Wine Advocate gave the 2013 vintage a score of 97 and Jancis Robinson gave the 2006 vintage a score of 19/20.", 2660.99, 5, "http://sr3.wine-searcher.net/images/labels/56/38/petrus-pomerol-france-10115638.jpg", "Red", "France");
+        addWine(db, "Kaiken Reserva", "The wines have tremendous structure, complexity, and a long finish. They have persistent tannins that are both firm and rounded. The wines are known for their minerality, fresh fruit, elegance, and sensuousness.", 10.99, 4, "http://sr3.wine-searcher.net/images/labels/16/21/kaiken-reserva-malbec-mendoza-argentina-10681621.jpg", "Red", "Argentina");
+        addWine(db, "Muruve", "The palate is complex, rich and very expressive displaying notes of roasted spiced black cherries. There’s a lingering spicy mineral finish.", 10.99, 4, "http://sr3.wine-searcher.net/images/labels/06/36/bodegas-frutos-villar-muruve-crianza-toro-spain-10540636.jpg", "Red", "Spain");
+        addWine(db, "Black Box", "Black Box, which produces vintage Merlot, Cabernet Sauvignon, Shiraz and Pinot Grigio, claims that once opened, its wines will remain fresh for more than a month. The Chardonnay shows off aromas of pineapple, citrus blossom and sugar cookie, mixing with crisp flavors of juicy lemon, apple and sweet oak.", 21.99, 3, "http://www.gayot.com/images/wine/boxwine/black-box.jpg", "White", "Monterey");
 
     }
 
@@ -194,9 +202,10 @@ public class Dbase extends SQLiteOpenHelper {
 
         cursor.moveToFirst();
 
-        ArrayList<Wine> list = new ArrayList<>();
+        ArrayList<Wine> shoppingList = new ArrayList<>();
+
         while (!cursor.isAfterLast()) {
-            list.add(new Wine(
+            shoppingList.add(new Wine(
                     cursor.getInt(cursor.getColumnIndex(COL_ID)),
                     cursor.getString(cursor.getColumnIndex(COL_ITEM_NAME)),
                     cursor.getString(cursor.getColumnIndex(COL_ITEM_DESCRIPTION)),
@@ -205,12 +214,10 @@ public class Dbase extends SQLiteOpenHelper {
                     cursor.getString(cursor.getColumnIndex(COL_ITEM_IMAGE)),
                     cursor.getString(cursor.getColumnIndex(COL_ITEM_TYPE)),
                     cursor.getString(cursor.getColumnIndex(COL_ITEM_REGION))
-
             ));
             cursor.moveToNext();
         }
-        return list;
-
+        return shoppingList;
     }
 
     public boolean isWineInCart (int id) {
@@ -228,6 +235,45 @@ public class Dbase extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return isInCart;
+    }
+
+//    public void deleteWineFromCart(int id){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        String selection = COL_ID + " = ?";
+//        String[] selectionArgs = new String[] {String.valueOf(id)};
+//        db.delete(SHOPPING_CART_LIST_TABLE_NAME, selection, selectionArgs );
+//    }
+
+    public ArrayList searchWineList(String query){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(WINE_LIST_TABLE_NAME, // a. table
+                WINE_COLUMNS, // b. column names
+                COL_ITEM_NAME + " LIKE ?", // c. selections
+                new String[]{"%"+query+"%"}, // d. selections args
+                null, // e. group by
+                null, // f. having
+                null, // g. order by
+                null); // h. limit
+
+        cursor.moveToFirst();
+
+        ArrayList<Wine> searchList = new ArrayList<>();
+        while (!cursor.isAfterLast()) {
+            searchList.add(new Wine(
+                    cursor.getInt(cursor.getColumnIndex(COL_ID)),
+                    cursor.getString(cursor.getColumnIndex(COL_ITEM_NAME)),
+                    cursor.getString(cursor.getColumnIndex(COL_ITEM_DESCRIPTION)),
+                    cursor.getDouble(cursor.getColumnIndex(COL_ITEM_PRICE)),
+                    cursor.getInt(cursor.getColumnIndex(COL_ITEM_RATING)),
+                    cursor.getString(cursor.getColumnIndex(COL_ITEM_IMAGE)),
+                    cursor.getString(cursor.getColumnIndex(COL_ITEM_TYPE)),
+                    cursor.getString(cursor.getColumnIndex(COL_ITEM_REGION))
+
+            ));
+            cursor.moveToNext();
+        }
+        return searchList;
     }
 }
 

@@ -22,6 +22,7 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView textViewDescription;
     private TextView textViewRegion;
     private TextView textViewType;
+    private TextView textViewPrice;
     private RatingBar ratingBar;
     private ImageButton shoppingCart;
     private Button buttonBack;
@@ -44,18 +45,20 @@ public class DetailsActivity extends AppCompatActivity {
         textViewDescription = (TextView)findViewById(R.id.textview_description);
         textViewRegion = (TextView)findViewById(R.id.textView_region);
         textViewType = (TextView)findViewById(R.id.textview_type);
+        textViewPrice = (TextView)findViewById(R.id.textView_price_details);
         ratingBar = (RatingBar)findViewById(R.id.ratingBar);
         shoppingCart = (ImageButton) findViewById(R.id.button_shopping);
         buttonBack = (Button)findViewById(R.id.button_back);
         buttonBuy = (Button)findViewById(R.id.button_buy);
 
         Picasso.with(this).load(item.getImage()).into(imageViewImage);
+
         textViewName.setText(item.getName());
         textViewDescription.setText(item.getDescription());
         textViewType.setText(item.getType());
         textViewRegion.setText(item.getRegion());
+        textViewPrice.setText("$" + String.valueOf(item.getPrice()));
         ratingBar.setRating(item.getRating());
-
 
         shoppingCart.setOnClickListener(new View.OnClickListener() {
             @Override
