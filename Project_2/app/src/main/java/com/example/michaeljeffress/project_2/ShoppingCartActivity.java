@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     private List<Wine> winelist;
     private TextView textView;
     private Button buttonBack;
+    private Dbase dbHelper;
 
 
 
@@ -38,6 +41,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
         double total_price = 0;
 
         listView.setAdapter(adapter);
+
+        dbHelper = new Dbase(ShoppingCartActivity.this);
 
         for (int i = 0; i < winelist.size(); i++) {
             total_price = total_price + winelist.get(i).getPrice();
@@ -56,6 +61,20 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Log.d(TAG, "onItemClick: ");
+                dbHelper.deleteWineFromCart(position);
+                Log.d(TAG, "onItemClick: delete wine");
+                winelist.remove(position);
+                adapter.notifyDataSetChanged();
+                Log.d(TAG, "onItemClick: notify");
+            }
+        });
+
 
 
     }

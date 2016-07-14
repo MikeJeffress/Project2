@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
+
 
 /**
  * Created by michaeljeffress on 7/10/16.
@@ -237,12 +237,13 @@ public class Dbase extends SQLiteOpenHelper {
         return isInCart;
     }
 
-//    public void deleteWineFromCart(int id){
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        String selection = COL_ID + " = ?";
-//        String[] selectionArgs = new String[] {String.valueOf(id)};
-//        db.delete(SHOPPING_CART_LIST_TABLE_NAME, selection, selectionArgs );
-//    }
+    public void deleteWineFromCart(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selection = COL_ID + " = ?";
+        String[] selectionArgs = new String[] {String.valueOf(id)};
+        db.delete(SHOPPING_CART_LIST_TABLE_NAME, selection, selectionArgs );
+
+    }
 
     public ArrayList searchWineList(String query){
         SQLiteDatabase db = this.getReadableDatabase();

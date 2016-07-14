@@ -27,14 +27,14 @@
 
         <TextView
             android:id="@+id/textview_name1"
-            android:text="NAME"
+            android:text="@string/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/textView_region2"
-            android:text="REGION"
+            android:text="@string/region"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="10dp"
@@ -42,7 +42,7 @@
 
         <TextView
             android:id="@+id/textview_type2"
-            android:text="TYPE"
+            android:text="@string/type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="10dp"
@@ -50,7 +50,7 @@
 
         <TextView
             android:id="@+id/textView_price2"
-            android:text="PRICE"
+            android:text="@string/price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.2"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Wine-O-Rama"
+        android:text="@string/wine_o_rama"
         android:textSize="50dp"
         android:id="@+id/textView2"
         android:textColor="@android:color/white"

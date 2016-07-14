@@ -37,14 +37,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back To Wine List"
+        android:text="@string/back_to_wine_list"
         android:id="@+id/button_back"
         android:layout_alignParentBottom="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Purchase"
+        android:text="@string/purchase"
         android:id="@+id/button_buy"
         android:layout_below="@+id/textview_total_price"
         android:layout_alignLeft="@+id/textview_total_price"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Wine-O-Rama"
+        android:text="@string/wine_o_rama"
         android:textSize="50dp"
         android:id="@+id/textView2"
         android:textColor="@android:color/white"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="22dp"
-        android:text="TOTAL PRICE"
+        android:text="@string/total_price"
         android:id="@+id/textView3"
         android:paddingRight="10dp"
         android:layout_above="@+id/textview_total_price"

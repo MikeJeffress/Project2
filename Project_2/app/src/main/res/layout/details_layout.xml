@@ -27,7 +27,7 @@
 
     <TextView
         android:id="@+id/textView_region_text"
-        android:text="Region: "
+        android:text="@string/region_details"
         android:textSize="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,14 +105,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back To Wine List"
+        android:text="@string/back_to_wine_list"
         android:id="@+id/button_back"
         android:layout_alignParentBottom="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD TO CART "
+        android:text="@string/add_to_cart"
         android:id="@+id/button_buy"
         android:layout_above="@+id/button_shopping"
         android:layout_centerHorizontal="true" />
