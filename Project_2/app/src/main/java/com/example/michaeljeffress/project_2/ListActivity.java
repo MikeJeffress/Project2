@@ -3,6 +3,7 @@ package com.example.michaeljeffress.project_2;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 import java.util.List;
@@ -26,6 +28,10 @@ public class ListActivity extends AppCompatActivity {
     private ListView listView;
     private ListCustomAdapter adapter;
     private List<Wine> winelist;
+    private TextView textview_name;
+    private TextView textview_region;
+    private TextView textview_type;
+    private TextView textview_price;
 
     private Dbase dbHelper;
 
@@ -39,6 +45,17 @@ public class ListActivity extends AppCompatActivity {
         adapter = new ListCustomAdapter(this, R.layout.list_item_layout, winelist);
         shoppingCart = (ImageButton) findViewById(R.id.button_shopping);
         listView = (ListView) findViewById(R.id.list_wine);
+
+        textview_name = (TextView)findViewById(R.id.textview_name1);
+        textview_type = (TextView)findViewById(R.id.textview_type2);
+        textview_region = (TextView)findViewById(R.id.textView_region2);
+        textview_price = (TextView)findViewById(R.id.textView_price2);
+
+        textview_name.setTypeface(null, Typeface.BOLD);
+        textview_type.setTypeface(null, Typeface.BOLD);
+        textview_region.setTypeface(null, Typeface.BOLD);
+        textview_price.setTypeface(null, Typeface.BOLD);
+
 
         dbHelper = new Dbase(ListActivity.this);
 

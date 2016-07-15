@@ -250,8 +250,8 @@ public class Dbase extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(WINE_LIST_TABLE_NAME, // a. table
                 WINE_COLUMNS, // b. column names
-                COL_ITEM_NAME + " LIKE ?", // c. selections
-                new String[]{"%"+query+"%"}, // d. selections args
+                COL_ITEM_NAME + " LIKE ? OR " + COL_ITEM_REGION +  " LIKE ? OR " + COL_ITEM_TYPE +  " LIKE ? ", // c. selections
+                new String[]{"%"+query+"%", "%"+query+"%", "%"+query+"%"}, // d. selections args
                 null, // e. group by
                 null, // f. having
                 null, // g. order by

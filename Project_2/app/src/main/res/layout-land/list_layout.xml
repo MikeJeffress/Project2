@@ -7,7 +7,7 @@
         android:id="@+id/title_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/title_background"
+        android:src="@drawable/winebackground_ls_bar"
         android:layout_marginTop="-3dp"/>
 
     <LinearLayout
@@ -26,12 +26,12 @@
             android:layout_height="wrap_content" />
 
         `<TextView
-            android:id="@+id/textview_name1"
-            android:text="@string/name"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+        android:id="@+id/textview_name1"
+        android:text="@string/name"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/textView_region2"

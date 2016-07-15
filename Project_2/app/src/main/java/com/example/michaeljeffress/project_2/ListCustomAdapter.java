@@ -45,10 +45,10 @@ public class ListCustomAdapter extends ArrayAdapter <Wine> {
                 .resize(35,100)
                 .into(thumbNail);
 
-        name.setText(wineItem.getName());
-        region.setText(wineItem.getRegion());
-        type.setText(wineItem.getType());
-        price.setText("$" + wineItem.getPrice());
+        name.setText(wineItem.getName() + "    ");
+        region.setText(wineItem.getRegion() + "  ");
+        type.setText(wineItem.getType() + "  ");
+        price.setText("$" + wineItem.getPrice() + "  ");
         ratingBar.setRating(wineItem.getRating());
 
     return view;

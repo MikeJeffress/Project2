@@ -54,6 +54,11 @@
 
     </LinearLayout>
 
+    <TextView
+        android:text="  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textblock2"/>
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -63,7 +68,10 @@
         android:scaleX="0.5"
         android:scaleY="0.5"
         android:isIndicator="true"
-        android:layout_below="@+id/textblock"
-        android:paddingLeft="30dp"/>
+        android:layout_below="@+id/textblock2"
+        android:layout_toRightOf="@+id/textblock2"
+        android:layout_toEndOf="@+id/textblock2"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp" />
 
 </RelativeLayout>
