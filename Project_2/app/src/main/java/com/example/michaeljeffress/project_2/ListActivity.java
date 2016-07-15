@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -91,6 +93,26 @@ public class ListActivity extends AppCompatActivity {
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+
+        searchView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View view) {
+                Log.i(TAG, "onViewAttachedToWindow: ");
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View view) {
+                Log.i(TAG, "onViewDetachedFromWindow: ");
+                winelist = Dbase.getInstance(ListActivity.this).getWine();
+                adapter = new ListCustomAdapter(ListActivity.this, R.layout.list_item_layout, winelist);
+                dbHelper = new Dbase(ListActivity.this);
+
+                handleIntent(getIntent());
+
+                listView.setAdapter(adapter);
+            }
+        });
 
 
         return true;

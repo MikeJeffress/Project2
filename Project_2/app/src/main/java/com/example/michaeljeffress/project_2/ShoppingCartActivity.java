@@ -25,7 +25,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
     private TextView textView;
     private Button buttonBack;
     private Dbase dbHelper;
-
+    private double total_price = 0;
+    private double price;
 
 
     @Override
@@ -38,7 +39,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listview_shopping);
         textView = (TextView)findViewById(R.id.textview_total_price);
         buttonBack = (Button)findViewById(R.id.button_back);
-        double total_price = 0;
+
 
         listView.setAdapter(adapter);
 
@@ -66,12 +67,15 @@ public class ShoppingCartActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Log.d(TAG, "onItemClick: ");
                 dbHelper.deleteWineFromCart(position);
-                Log.d(TAG, "onItemClick: delete wine");
+                total_price = total_price - winelist.get(position).getPrice();;
                 winelist.remove(position);
+                //price = winelist.get(position).getPrice();
+                //Log.d(TAG, "onItemClick: position: " + position + "total price: " + total_price + "price: " + price);
+                textView.setText(String.format("$"+"%.2f", total_price));
+                //Log.d(TAG, "onItemClick: " + dbHelper.getReadableDatabase().get);
                 adapter.notifyDataSetChanged();
-                Log.d(TAG, "onItemClick: notify");
+
             }
         });
 
